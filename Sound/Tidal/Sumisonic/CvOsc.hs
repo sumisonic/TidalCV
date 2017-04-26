@@ -24,12 +24,12 @@ cvStream port ch = do
   s <- makeConnection "127.0.0.1" port (cvSlang ch)
   stream (Backend s $ (\_ _ _ -> return ())) cvShape
 
-cv' = makeF cvShape "cv"
+cv = makeF cvShape "cv"
 glide = makeF cvShape "glide"
 curve = makeF cvShape "curve"
 
-cv :: Pattern String -> ParamPattern
-cv = cv'.(readCV <$>)
+cvnote :: Pattern String -> ParamPattern
+cvnote = cv.(readCV <$>)
 
 readCV :: String -> Double
 readCV s@(n:ns)
