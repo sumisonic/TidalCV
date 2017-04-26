@@ -30,10 +30,11 @@ function parseOSC(arguments) {
   var cv = params["cv"]
   if (ch == null || delta == null || cv == null) { return }
 
-  var gate = params["gate"] ? params["gate"] : 1.0
-  var glide = params["glide"] ? params["glide"] : 0.0
-  var curve = params["curve"] ? params["curve"] : 0.0
+  var gate = params["gate"] != null ? params["gate"] : 1.0
+  var glide = params["glide"] != null ? params["glide"] : 0.0
+  var curve = params["curve"] != null ? params["curve"] : 0.0
+  var gain = params["gain"] != null ? params["gain"] : 1.0
+  
   // post("parse: " + args + "\n")
-  outlet(0, [cv, gate, glide, curve, delta, ch])
-
+  outlet(0, [cv*gain, gate, glide, curve, delta, ch])
 }
