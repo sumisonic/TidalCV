@@ -10,7 +10,7 @@ cvShape = Shape {
     F "curve" (Just 0.0)
   ],
   cpsStamp = True,
-  C.latency = 0.02
+  C.latency = 0.33675
 }
 
 cvSlang ch = OscSlang {
